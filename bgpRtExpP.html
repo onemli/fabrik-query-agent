@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>bgpRtExpP — Route Export Policy · APIC object model · Fabrik Query Agent</title><meta name="description" content="bgpRtExpP (Route Export Policy), APIC object model class: DN, properties, values, moquery and REST queries. Route export policy to control whether to export routes
+                 into a different address family. Destination address
+                 family is specified in the object.
+              "><style>
+:root { color-scheme: light dark; --ink: #1d1d1f; --soft: #5f6368; --line: #d9d9de; --bg: #ffffff; --code: #f3f3f6; --link: #0b57d0; }
+@media (prefers-color-scheme: dark) { :root { --ink: #e8e8ea; --soft: #a4a4ab; --line: #3a3a40; --bg: #17171a; --code: #232327; --link: #8ab4f8; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.55 -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+a { color: var(--link); text-decoration: none; } a:hover { text-decoration: underline; }
+h1 { font-size: 26px; margin: 0 0 4px; } h2 { font-size: 18px; margin: 28px 0 8px; }
+.soft { color: var(--soft); }
+code, pre { font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: var(--code); border-radius: 4px; }
+code { padding: 1px 4px; } pre { padding: 10px 12px; overflow-x: auto; white-space: pre-wrap; word-break: break-all; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; } th, td { text-align: left; vertical-align: top; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+th { font-weight: 600; } td { overflow-wrap: anywhere; }
+.facts td:first-child { width: 160px; color: var(--soft); }
+nav { margin-bottom: 16px; font-size: 14px; }
+ul.cols { columns: 3 220px; padding-left: 18px; }
+</style></head><body><main><nav><a href="index.html">Fabrik Query Agent · APIC 611 object model</a> › <a href="bgp.html">bgp</a></nav><h1>bgpRtExpP</h1><p class="soft">Route Export Policy · bgp:RtExpP</p><p>Route export policy to control whether to export routes
+                 into a different address family. Destination address
+                 family is specified in the object.
+                 Object may be nested within peer Address family (AF) to
+                 subject only those peer&#x27;s particular AF routes to export.
+                 Object can also be under a domain Address family in
+                 which case it is applicable to all peers and local routes</p><table class="facts"><tr><td>moquery name</td><td><code>bgp.RtExpP</code></td></tr><tr><td>Kind</td><td>state (read only)</td></tr><tr><td>Layer</td><td>concrete</td></tr><tr><td>RN</td><td><code>rtexp-{af}</code></td></tr><tr><td>DN</td><td><code>topology/pod-{id}/node-{id}/sys/bgp/inst/dom-{name}/peer-[{addr}]/af-{type}/rtexp-{af}</code><br><code>sys/bgp/inst/dom-{name}/peer-[{addr}]/af-{type}/rtexp-{af}</code><br><code>topology/pod-{id}/node-{id}/sys/bgp/inst/dom-{name}/af-{type}/rtexp-{af}</code><br><code>sys/bgp/inst/dom-{name}/af-{type}/rtexp-{af}</code></td></tr><tr><td>Contained by</td><td><a href="bgpDomAf.html"><code>bgpDomAf</code></a>, <a href="bgpPeerAf.html"><code>bgpPeerAf</code></a></td></tr></table><h2>Queries</h2><p class="soft">APIC stands for the APIC's address. Read only. A few classes cannot be asked fabric-wide: APIC then answers <code>Unable to resolve destination node</code>; ask one switch instead, <code>/api/class/topology/pod-1/node-101/CLASS.json</code>, or the DN of an object above it.</p><pre>moquery -c bgpRtExpP
+https://APIC/api/class/bgpRtExpP.json</pre><h2>Properties (7)</h2><table><thead><tr><th>Property</th><th>What</th><th>Type</th><th>Values</th><th>Default</th></tr></thead><tbody><tr><td><code>af</code><br><span class=soft>naming</span></td><td>Destination Address Family<br><span class=soft>Destination AF to export routes to</span></td><td>enum</td><td><code>ipv6-lu</code>, <code>ipv6-ucast</code>, <code>ipv4-ucast</code>, <code>vpnv4-ucast</code>, <code>rtfilter-ucast</code>, <code>l2vpn-evpn</code>, <code>vpnv6-ucast</code>, <code>ipv4-mcast</code>, <code>ipv6-mcast</code>, <code>ipv4-lu</code></td><td><code>ipv4-ucast</code></td></tr><tr><td><code>descr</code></td><td>Description<br><span class=soft>Specifies a control instrumentation description.</span></td><td>string</td><td></td><td></td></tr><tr><td><code>dn</code><br><span class=soft>read only</span></td><td>dn<br><span class=soft>A tag or metadata is a non-hierarchical keyword or term assigned to the fabric module.</span></td><td>auto</td><td></td><td></td></tr><tr><td><code>flags</code><br><span class=soft>read only</span></td><td>Direction<br><span class=soft>Route Export Flags</span></td><td>bitmask</td><td><code>reoriginate</code></td><td><code>reoriginate</code></td></tr><tr><td><code>name</code></td><td>Name<br><span class=soft>null</span></td><td>string</td><td></td><td></td></tr><tr><td><code>nameAlias</code></td><td>Display Name</td><td>string</td><td></td><td></td></tr><tr><td><code>rtMap</code><br><span class=soft>read only</span></td><td>Route Map<br><span class=soft>Route map name to control the distribution</span></td><td>auto</td><td></td><td></td></tr></tbody></table><h2>Contains (1)</h2><ul class="cols"><li><a href="faultDelegate.html"><code>faultDelegate</code></a></li></ul></main></body></html>

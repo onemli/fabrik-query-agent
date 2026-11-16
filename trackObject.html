@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>trackObject — Placeholder for object which can be of type Interface line protocol state, Interface IPv4/IPv6 routing state, IPv4/IPv6 route reachability, Object track list and Object tracking of IP SLA · APIC object model · Fabrik Query Agent</title><meta name="description" content="trackObject (Placeholder for object which can be of type Interface line protocol state, Interface IPv4/IPv6 routing state, IPv4/IPv6 route reachability, Object track list and Object tracking of IP SLA), APIC object model class: DN, properties, values, moquery and REST queries. This object represents"><style>
+:root { color-scheme: light dark; --ink: #1d1d1f; --soft: #5f6368; --line: #d9d9de; --bg: #ffffff; --code: #f3f3f6; --link: #0b57d0; }
+@media (prefers-color-scheme: dark) { :root { --ink: #e8e8ea; --soft: #a4a4ab; --line: #3a3a40; --bg: #17171a; --code: #232327; --link: #8ab4f8; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.55 -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+a { color: var(--link); text-decoration: none; } a:hover { text-decoration: underline; }
+h1 { font-size: 26px; margin: 0 0 4px; } h2 { font-size: 18px; margin: 28px 0 8px; }
+.soft { color: var(--soft); }
+code, pre { font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: var(--code); border-radius: 4px; }
+code { padding: 1px 4px; } pre { padding: 10px 12px; overflow-x: auto; white-space: pre-wrap; word-break: break-all; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; } th, td { text-align: left; vertical-align: top; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+th { font-weight: 600; } td { overflow-wrap: anywhere; }
+.facts td:first-child { width: 160px; color: var(--soft); }
+nav { margin-bottom: 16px; font-size: 14px; }
+ul.cols { columns: 3 220px; padding-left: 18px; }
+</style></head><body><main><nav><a href="index.html">Fabrik Query Agent · APIC 611 object model</a> › <a href="track.html">track</a></nav><h1>trackObject</h1><p class="soft">Placeholder for object which can be of type Interface line protocol state, Interface IPv4/IPv6 routing state, IPv4/IPv6 route reachability, Object track list and Object tracking of IP SLA · track:Object</p><p>This object represents object of track.
+                 The object tracking monitors the status of the tracked objects
+                 and communicates any changes made to interested clients. 
+                 Each tracked object is identified by a unique number 
+                 (track:Object.id) that clients can use to configure the action
+                 to take when a tracked object changes state.
+
+                 Object types that can be tracked:
+                 * Interface line protocol state: Tracks whether the line 
+                   protocol state is UP or Down.
+                 * Interface IPv4/IPv6 routing state: Tracks whether the interface 
+                   has an IPv4 address and if IPv4 routing is enabled and active.
+                 * IPv4/IPv6 route reachability: Tracks whether an IPv4 route
+                   exists and is reachable from the local switch.
+                 * Object track list: Tracks combined states of multiple objects.
+                   Capabilities supported: boolean-and, boolean-or, 
+                   threshold-percentage, threshold-weight.
+                 * Object tracking of IP SLA.
+
+                 Specify track:Object.id</p><table class="facts"><tr><td>moquery name</td><td><code>track.Object</code></td></tr><tr><td>Kind</td><td>state (read only)</td></tr><tr><td>Layer</td><td>concrete</td></tr><tr><td>RN</td><td><code>object-{id}</code></td></tr><tr><td>DN</td><td><code>topology/pod-{id}/node-{id}/sys/track/inst/object-{id}</code><br><code>sys/track/inst/object-{id}</code></td></tr><tr><td>Contained by</td><td><a href="trackInst.html"><code>trackInst</code></a></td></tr></table><h2>Queries</h2><p class="soft">APIC stands for the APIC's address. Read only. A few classes cannot be asked fabric-wide: APIC then answers <code>Unable to resolve destination node</code>; ask one switch instead, <code>/api/class/topology/pod-1/node-101/CLASS.json</code>, or the DN of an object above it.</p><pre>moquery -c trackObject
+moquery -c trackObject -f &#x27;track.Object.operSt==&quot;up&quot;&#x27;
+https://APIC/api/class/trackObject.json
+https://APIC/api/class/trackObject.json?query-target-filter=eq(trackObject.operSt,&quot;up&quot;)</pre><h2>Properties (8)</h2><table><thead><tr><th>Property</th><th>What</th><th>Type</th><th>Values</th><th>Default</th></tr></thead><tbody><tr><td><code>id</code><br><span class=soft>naming</span></td><td>Track object ID<br><span class=soft>Track Object ID.
+                     Each instance is identified by a unique number,
+                     the object ID. Each instance is a parent of only one
+                     of &#x27;track:If&#x27;, &#x27;track:List&#x27;,
+                     &#x27;track:IpRoute&#x27; or &#x27;track:IpSla&#x27;</span></td><td>number</td><td></td><td></td></tr><tr><td><code>clients</code><br><span class=soft>read only</span></td><td>Number of clients tracking this object<br><span class=soft>Number of clients tracking object</span></td><td>number</td><td></td><td></td></tr><tr><td><code>count</code><br><span class=soft>read only</span></td><td>count usage<br><span class=soft>A block count.</span></td><td>auto</td><td></td><td></td></tr><tr><td><code>dn</code><br><span class=soft>read only</span></td><td>dn<br><span class=soft>A tag or metadata is a non-hierarchical keyword or term assigned to the fabric module.</span></td><td>auto</td><td></td><td></td></tr><tr><td><code>lastStateChgTs</code><br><span class=soft>read only</span></td><td>Last state transition time<br><span class=soft>Time of last state transition</span></td><td>date</td><td></td><td></td></tr><tr><td><code>operSt</code><br><span class=soft>read only</span></td><td>Operational State of the group<br><span class=soft>Operational state</span></td><td>enum</td><td><code>up</code>, <code>down</code>, <code>undefined</code></td><td><code>undefined</code></td></tr><tr><td><code>operStQual</code><br><span class=soft>read only</span></td><td>Operational State Qualifier<br><span class=soft>Operational state qualifier</span></td><td>enum</td><td><code>internal-err</code>, <code>invalid-member-obj</code>, <code>invalid-type-change</code>, <code>invalid-thrshld-percent-cfg</code>, <code>unspecified</code>, <code>invalid-thrshld-wt-cfg</code></td><td><code>unspecified</code></td></tr><tr><td><code>stateChgs</code><br><span class=soft>read only</span></td><td>No. of state transitions<br><span class=soft>No. of state transitions</span></td><td>number</td><td></td><td></td></tr></tbody></table><h2>Contains (2)</h2><ul class="cols"><li><a href="trackIpSla.html"><code>trackIpSla</code></a></li><li><a href="trackList.html"><code>trackList</code></a></li></ul></main></body></html>
